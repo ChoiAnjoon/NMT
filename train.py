@@ -307,7 +307,7 @@ def main(config, model_weight=None, opt_weight=None):
     model = get_model(input_size, output_size, config)
     crit = get_crit(output_size, data_loader.PAD)
 
-    if model_weight is not None: # continue_trainer.py 할때 이야기
+    if model_weight is not None: # continue_trainer.py
         model.load_state_dict(model_weight)
 
     # Pass models to GPU device if it is necessary.
@@ -318,7 +318,7 @@ def main(config, model_weight=None, opt_weight=None):
     optimizer = get_optimizer(model, config)
 
     if opt_weight is not None and (config.use_adam or config.use_radam): # opt_weight 값은 무조껀 있어야 하고, adam, radam 중 하나가 True일때
-        optimizer.load_state_dict(opt_weight) # continue_trainer.py 할때 이야기
+        optimizer.load_state_dict(opt_weight) # continue_trainer.py 
 
     lr_scheduler = get_scheduler(optimizer, config)
 

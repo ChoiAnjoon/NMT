@@ -189,7 +189,7 @@ class MaximumLikelihoodEstimationEngine(Engine):
                 ))
 
     @staticmethod
-    def resume_training(engine, resume_epoch): # 3번째 epoch의 model file을 받아와서 4번째 epoch부터 시작한다 치자. (이해를 위해서)
+    def resume_training(engine, resume_epoch): # 3번째 epoch의 model file을 받아와서 4번째 epoch부터 시작
         engine.state.iteration = (resume_epoch - 1) * len(engine.state.dataloader)
         engine.state.epoch = (resume_epoch - 1)
         # 현재 load한 epoch의 model file의 iteration 과 epoch를 명시 해주는 함수 

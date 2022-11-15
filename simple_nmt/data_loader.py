@@ -68,7 +68,7 @@ class DataLoader():
                 batch_size=batch_size,
                 device='cuda:%d' % device if device >= 0 else 'cpu',
                 shuffle=shuffle,
-                sort_key=lambda x: len(x.tgt) + (max_length * len(x.src)), # sort_key 이해가 안감 (sorting을 하는 방법)
+                sort_key=lambda x: len(x.tgt) + (max_length * len(x.src)), # sort_key (sorting을 하는 방법)
                 # 문장의 어떤 길이별로 sorting해서 비슷한 문장끼리 미니배치를 만들기 위해 만드는 작업들
                 sort_within_batch=True,
             )
