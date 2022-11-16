@@ -276,7 +276,7 @@ class SingleTrainer():
         def run_validation(engine, validation_engine, valid_loader):
             validation_engine.run(valid_loader, max_epochs=1)
 
-            if engine.lr_scheduler is not None: # 이거는 뭐지?? continue_train.py 와 연관이 있을 것 같음
+            if engine.lr_scheduler is not None: # continue_train.py 
                 engine.lr_scheduler.step()
 
         # Attach above call-back function.
@@ -286,7 +286,7 @@ class SingleTrainer():
             validation_engine,
             valid_loader
         )
-        # Attach other call-back function for initiation of the training. # continue_train.py 와 연관 
+        # Attach other call-back function for initiation of the training. # continue_train.py 
         train_engine.add_event_handler( 
             Events.STARTED,
             self.target_engine_class.resume_training,
@@ -310,4 +310,4 @@ class SingleTrainer():
         # Start training.
         train_engine.run(train_loader, max_epochs=n_epochs)
 
-        return model # model return? 이게 어떻게 return이 되는 건지 잘 이해가 안감.. 
+        return model # model return
